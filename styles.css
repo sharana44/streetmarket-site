@@ -61,7 +61,8 @@ a { color: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 16px 28px;
   padding-block: 20px;
 }
 
@@ -78,6 +79,25 @@ a { color: inherit; }
 .site-header nav { display: flex; flex-wrap: wrap; gap: 6px 24px; font-weight: 600; font-size: 0.975rem; }
 .site-header nav a { text-decoration: none; }
 .site-header nav a:hover { color: var(--orange-dark); text-decoration: underline; }
+
+/* Web app logins: customer orange, partner teal, matching the two panels. */
+.logins { display: flex; flex-wrap: wrap; gap: 10px; }
+.login {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.15s ease;
+}
+.login-customer { background: var(--orange); }
+.login-customer:hover { background: var(--orange-dark); }
+.login-partner { background: var(--teal); }
+.login-partner:hover { background: var(--teal-dark); }
 
 h1, h2, h3 { line-height: 1.12; margin: 0; letter-spacing: -0.02em; }
 h1 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); font-weight: 800; }
@@ -178,6 +198,25 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 .app-partner .store { background: #fff; color: var(--teal-dark); }
 .app-partner .store:hover { background: var(--mint); }
 
+/* "Log in on the web": full-width, above the store badges. */
+.web-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.app-customer .web-open { background: var(--orange); color: #fff; }
+.app-customer .web-open:hover { background: var(--orange-dark); }
+.app-partner .web-open { background: var(--mint); color: var(--teal-dark); }
+.app-partner .web-open:hover { background: #fff; }
+
 /* ---------- How it works ---------- */
 .how { padding-block: 0 72px; }
 .how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 28px; }
@@ -262,5 +301,5 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .store { transition: none; }
+  .store, .login, .web-open { transition: none; }
 }
